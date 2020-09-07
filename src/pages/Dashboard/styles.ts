@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components/native';
+import styled, { css } from "styled-components/native";
 
 interface CategoryItemProps {
   isSelected?: boolean;
@@ -24,7 +24,7 @@ export const FilterContainer = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-family: 'Poppins-Regular';
+  font-family: "Poppins-Regular";
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -54,7 +54,7 @@ export const CategoryItem = styled.TouchableOpacity<CategoryItemProps>`
   align-items: center;
   justify-content: space-between;
   text-align: center;
-  ${props =>
+  ${(props) =>
     props.isSelected &&
     css`
       border-color: #c72828;
@@ -76,7 +76,6 @@ export const FoodsContainer = styled.View`
 `;
 
 export const FoodList = styled.View`
-  flex: 1;
   padding: 0 20px;
   margin-top: 16px;
 `;
@@ -104,7 +103,7 @@ export const FoodContent = styled.View`
 `;
 
 export const FoodTitle = styled.Text`
-  font-family: 'Poppins-Regular';
+  font-family: "Poppins-Regular";
   font-style: normal;
   font-weight: 600;
   font-size: 15px;
@@ -112,7 +111,7 @@ export const FoodTitle = styled.Text`
   color: #3d3d4d;
 `;
 export const FoodDescription = styled.Text`
-  font-family: 'Poppins-Regular';
+  font-family: "Poppins-Regular";
   font-style: normal;
   font-weight: normal;
   font-size: 10px;
@@ -122,7 +121,7 @@ export const FoodDescription = styled.Text`
 `;
 
 export const FoodPricing = styled.Text`
-  font-family: 'Poppins-Regular';
+  font-family: "Poppins-Regular";
   font-style: normal;
   font-weight: normal;
   font-size: 18px;

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { Image } from 'react-native';
+import React, { useEffect, useState } from "react";
+import { Image } from "react-native";
 
-import api from '../../services/api';
-import formatValue from '../../utils/formatValue';
+import api from "../../services/api";
+import formatValue from "../../utils/formatValue";
 
 import {
   Container,
@@ -16,7 +16,7 @@ import {
   FoodTitle,
   FoodDescription,
   FoodPricing,
-} from './styles';
+} from "./styles";
 
 interface Food {
   id: number;
@@ -32,7 +32,14 @@ const Favorites: React.FC = () => {
 
   useEffect(() => {
     async function loadFavorites(): Promise<void> {
-      // Load favorite foods from api
+      const response = await api.get("/favorites");
+
+      setFavorites(
+        response.data.map((favorite: Food) => ({
+          ...favorite,
+          formattedPrice: formatValue(favorite.price),
+        }))
+      );
     }
 
     loadFavorites();
@@ -47,7 +54,7 @@ const Favorites: React.FC = () => {
       <FoodsContainer>
         <FoodList
           data={favorites}
-          keyExtractor={item => String(item.id)}
+          keyExtractor={(item) => String(item.id)}
           renderItem={({ item }) => (
             <Food activeOpacity={0.6}>
               <FoodImageContainer>
